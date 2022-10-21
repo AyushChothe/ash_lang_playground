@@ -11,7 +11,16 @@
 import init, { run } from "https://ayushchothe-ashlang.github.io/ash_lang/pkg/ash_lang.js";
 import { onMounted } from "vue";
 
-const code = ref('fn main() {\n\treturn 0;\n}');
+const code = ref(`fn fib(n) {
+	if (n<=1) {
+		return n;
+	}
+	return fib(n-1) + fib(n-2);
+}
+
+fn main() {
+	return fib(25);
+}`);
 const output = ref('');
 
 const running = ref(false);
