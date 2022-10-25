@@ -6,16 +6,10 @@ export default defineNuxtConfig({
   modules: [
     "nuxt-monaco-editor",
   ],
-  head: {
-    script: [{
-      src: "https://ayushchothe-ashlang.github.io/ash_lang/pkg/ash_lang.js",
-      async: true,
-    }],
-  },
+
   vite: {
     plugins: [
       Components({
-        // add option {resolveIcons: true} as parameter for resolving problem with icons
         resolvers: [AntDesignVueResolver({ resolveIcons: true })],
       }),
     ],
