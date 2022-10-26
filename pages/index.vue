@@ -25,8 +25,8 @@
 </template>
 
 <script lang="ts" setup>
-import init, { run } from "https://ayushchothe-ashlang.github.io/ash_lang/pkg/ash_lang.js?url";
 import { onMounted } from "vue";
+import init, { run } from "../ashlang";
 
 const code = ref(`fn fib(n) {
 	if (n<=1) {
