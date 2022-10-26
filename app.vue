@@ -54,25 +54,4 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-
-.monaco-editor,
-.editor {
-  width: 100%;
-  height: 70vh !important;
-}
-
-#output {
-  background-color: #3c3c3c;
-  color: white;
-  width: 100vw;
-  height: 30vh;
-  font-size: 16px;
-  padding: 10px;
-}
-
-#run {
-  margin: 10px;
-  float: right;
-  font-size: 18px;
-}
 </style>
