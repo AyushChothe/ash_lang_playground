@@ -2,13 +2,13 @@
   <MonacoEditor class="editor" v-model="code" lang="rust" :options="options" />
   <div>
     <button id="run" @click="runCode">Run</button>
-    <pre id="output" v-if="running">Running...</pre>
-    <pre id="output" v-else>{{output}}</pre>
+    <pre id="output">{{ output }}</pre>
   </div>
 </template>
 
 <script lang="ts" setup>
-import init, { run } from "https://ayushchothe-ashlang.github.io/ash_lang/pkg/ash_lang.js";
+// @ts-ignore
+import init, { run } from "https://ayushchothe-ashlang.github.io/ash_lang/pkg/ash_lang.js?url";
 import { onMounted } from "vue";
 
 const code = ref(`fn fib(n) {
@@ -21,26 +21,22 @@ const code = ref(`fn fib(n) {
 fn main() {
 	return fib(25);
 }`);
+
 const output = ref('');
-
-const running = ref(false);
-
 const options = ref({
   "theme": "vs-dark",
 });
 
-let runCode = () => {
-  running.value = true;
+let runCode = async () => {
   try {
     var start = performance.now();
-    let res = run(code.value);
+    let res = await run(code.value);
     var end = performance.now();
     res += ("\nExecuted in " + (end - start).toPrecision(6) + " ms");
     output.value = res;
   } catch (err) {
     output.value = err;
   }
-  running.value = false;
 }
 
 onMounted(async () => {
